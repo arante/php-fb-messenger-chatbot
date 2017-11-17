@@ -6,8 +6,11 @@ include 'controller.php';
 
 /* Processing the Chat message */
   $input = json_decode(file_get_contents('php://input'), true); // Get the chat
+
   $sender = $input['entry'][0]['messaging'][0]['sender']['id']; // User Scope ID of sender
+
   $message = isset($input['entry'][0]['messaging'][0]['message']['text']) ? $input['entry'][0]['messaging'][0]['message']['text']: '' ;  // Get Message text if available
+
   $postback = isset($input['entry'][0]['messaging'][0]['postback']['payload']) ? $input['entry'][0]['messaging'][0]['postback']['payload']: '' ;
 
   $jsonData = null;
